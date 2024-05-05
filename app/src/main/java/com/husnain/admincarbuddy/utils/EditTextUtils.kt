@@ -41,6 +41,26 @@ fun setPasswordVisibilityToggle(editText: EditText, ) { editText.setOnTouchListe
     }
     false
 } }
+fun EditText.ifEmpty(errorMessage: String): Boolean {
+    val text = this.text?.toString()
+    if (text.isNullOrEmpty()) {
+        this.error = errorMessage
+        this.requestFocus()
+        return true
+    }
+    return false
+}
+
+fun EditText.ifEmailNotMatches(errorMessage: String):Boolean{
+    val email = this.text?.toString()
+    if (!email?.let { Patterns.EMAIL_ADDRESS.matcher(it).matches() }!!) {
+        this.error = errorMessage
+        this.requestFocus()
+        return true
+    }
+    return false
+}
+
 
 
 

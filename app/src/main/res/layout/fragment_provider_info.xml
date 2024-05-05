@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    android:paddingHorizontal="@dimen/_20sdp"
+    android:paddingTop="@dimen/_32sdp"
+    tools:context=".ui.fragments.auth.providerinfo.ProviderInfoFragment">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/backArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvFillProfile"
+        style="@style/textViewStyleRegular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:text="@string/string_fill_your_profile"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="@+id/backArrow"
+        app:layout_constraintStart_toEndOf="@+id/backArrow"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profilePic"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_marginTop="@dimen/_35sdp"
+        android:src="@drawable/logo_profile_pic_placeholder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backArrow" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/btnImagePicker"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/icon_profile_image_picker"
+        app:layout_constraintBottom_toBottomOf="@+id/profilePic"
+        app:layout_constraintEnd_toEndOf="@+id/profilePic" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etFullName"
+        style="@style/edittextStyle"
+        android:layout_marginTop="@dimen/_35sdp"
+        android:hint="@string/string_full_name"
+        android:inputType="text"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePic"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etEmail"
+        style="@style/edittextStyle"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:hint="@string/string_email"
+        android:inputType="textEmailAddress"
+        android:singleLine="true"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etFullName"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etDateOfBirth"
+        style="@style/edittextStyle"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:cursorVisible="false"
+        android:drawableEnd="@drawable/icon_calendar"
+        android:focusableInTouchMode="false"
+        android:hint="@string/string_date_of_birth"
+        android:inputType="none"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEmail"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/countryCodePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:ccpDialog_textColor="@color/black"
+        app:ccp_arrowColor="@color/black"
+        app:ccp_autoDetectCountry="true"
+        app:ccp_autoDetectLanguage="true"
+        app:ccp_contentColor="@color/black"
+        app:ccp_hintExampleNumber="true"
+        app:ccp_showNameCode="false"
+        app:ccp_showPhoneCode="true"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/phoneNumber" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/phoneNumber"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/bg_edittext"
+        android:fontFamily="@font/open_sans_regular"
+        android:hint="@string/string_phone_number"
+        android:inputType="phone"
+        android:paddingHorizontal="15dp"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/countryCodePicker"
+        app:layout_constraintTop_toBottomOf="@+id/etDateOfBirth"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etAddress"
+        style="@style/edittextStyle"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:drawableEnd="@drawable/icon_location"
+        android:hint="@string/string_address"
+        android:inputType="text"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnContinue"
+        style="@style/ButtonStyle"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:text="@string/string_continue"
+        android:backgroundTint="@color/color_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etAddress" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

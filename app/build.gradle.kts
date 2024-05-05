@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId = "com.husnain.admincarbuddy"
-        minSdk = 26
+        minSdk = 29
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -72,8 +72,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
 
     //hilt
-    implementation("com.google.dagger:hilt-android:2.50")
-    kapt("com.google.dagger:hilt-compiler:2.50")
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-compiler:2.51.1")
 
     //Responsiveness
     implementation("com.intuit.ssp:ssp-android:1.1.0")
@@ -90,7 +90,7 @@ dependencies {
     implementation("com.webtoonscorp.android:readmore-view:1.3.2")
 
     //Firebase
-    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
+    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-storage")
@@ -103,4 +103,7 @@ dependencies {
 
     //Gson
     implementation ("com.google.code.gson:gson:2.10.1")
+
+    //Splash
+    implementation("androidx.core:core-splashscreen:1.0.1")
 }

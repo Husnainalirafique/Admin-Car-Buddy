@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/_32sdp"
+    tools:context=".ui.fragments.home.HomeFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvUserName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="@dimen/_35sdp"
+        android:ellipsize="end"
+        android:fontFamily="@font/popins_bold"
+        android:maxLines="1"
+        android:text="Hi, Dan 👋"
+        android:textColor="#1B1E28"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintEnd_toStartOf="@+id/imgWallet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvWishDayTimes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/open_sans_medium"
+        android:maxLines="1"
+        android:text="Good Morning"
+        android:textColor="#1B1E28"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imgWallet"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="20dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWishDayTimes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvUserName">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/icon_wallet_" />
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:cardBackgroundColor="@color/color_primary"
+        app:cardCornerRadius="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardElevation="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWishDayTimes">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="25dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnShowHideIncome"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                app:cardBackgroundColor="#FFC08D"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="-5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgShowHideIncome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/icon_pkr_hidden"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvIncomeInPkr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popins_bold"
+                android:text="10000.00"
+                android:textSize="@dimen/_13ssp"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/btnShowHideIncome"
+                app:layout_constraintTop_toTopOf="@+id/btnShowHideIncome" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvIncomeInPkrHidden"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popins_bold"
+                android:text="*****"
+                android:visibility="invisible"
+                android:textSize="@dimen/_20ssp"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/btnShowHideIncome"
+                app:layout_constraintTop_toTopOf="@+id/btnShowHideIncome" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPkr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popins_bold"
+                android:text="PKR"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnShowHideIncome"
+                app:layout_constraintStart_toStartOf="@+id/tvIncomeInPkr"
+                app:layout_constraintTop_toBottomOf="@id/tvIncomeInPkr" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPkrHidden"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popins_bold"
+                android:text="***"
+                android:visibility="invisible"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnShowHideIncome"
+                app:layout_constraintStart_toStartOf="@+id/tvIncomeInPkr"
+                app:layout_constraintTop_toBottomOf="@id/tvIncomeInPkr" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

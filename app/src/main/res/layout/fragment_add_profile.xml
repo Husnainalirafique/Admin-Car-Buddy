@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    android:paddingHorizontal="@dimen/_20sdp"
+    android:paddingTop="@dimen/_32sdp"
+    tools:context=".ui.fragments.addProfile.AddProfileFragment">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/backArrow"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/icon_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Add Service Profile"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/backArrow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilePic"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:src="@drawable/logo_profile_pic_placeholder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/btnImagePicker"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icon_profile_image_picker"
+                app:layout_constraintBottom_toBottomOf="@+id/profilePic"
+                app:layout_constraintEnd_toEndOf="@+id/profilePic" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etFullName"
+                style="@style/edittextStyle"
+                android:layout_marginTop="@dimen/_35sdp"
+                android:hint="@string/string_full_name"
+                android:inputType="text"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profilePic"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etPhoneNumber"
+                style="@style/edittextStyle"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:hint="Contact Number e.g (03400700125"
+                android:inputType="number"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etFullName"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etWhatsappNumber"
+                style="@style/edittextStyle"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:hint="Whatsapp Number"
+                android:inputType="number"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etPhoneNumber"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etSpeciality"
+                style="@style/edittextStyle"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:hint="Speciality i.e (painter, Mechanic)"
+                android:inputType="text"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etWhatsappNumber"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etYearsOfExperience"
+                style="@style/edittextStyle"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:hint="Enter years of experience"
+                android:inputType="number"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etSpeciality"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etSelectCity"
+                style="@style/edittextStyle"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:clickable="true"
+                android:cursorVisible="false"
+                android:drawableEnd="@drawable/icon_vector_down"
+                android:focusableInTouchMode="false"
+                android:hint="Select City"
+                android:inputType="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etYearsOfExperience"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etShopName"
+                style="@style/edittextStyle"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:hint="Shop Name"
+                android:inputType="text"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etSelectCity"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatTextView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/open_sans_medium"
+                android:text="Select Availability"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintStart_toStartOf="@+id/etShopName"
+                app:layout_constraintTop_toBottomOf="@+id/etShopName" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etStartTime"
+                android:layout_width="140dp"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/bg_edittext"
+                android:cursorVisible="false"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/open_sans_regular"
+                android:gravity="center"
+                android:hint="From"
+                android:inputType="none"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:singleLine="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView3"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="2dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/etStartTime"
+                app:layout_constraintEnd_toStartOf="@+id/etEndTime"
+                app:layout_constraintStart_toEndOf="@+id/etStartTime"
+                app:layout_constraintTop_toTopOf="@+id/etStartTime" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etEndTime"
+                android:layout_width="140dp"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/bg_edittext"
+                android:cursorVisible="false"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/open_sans_regular"
+                android:gravity="center"
+                android:hint="To"
+                android:inputType="none"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView3"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etCityLocation"
+                style="@style/edittextStyle"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:hint="Location Name in City"
+                android:inputType="text"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etStartTime"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <LinearLayout
+                android:id="@+id/btnChooseLocationOnMap"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_2sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etCityLocation">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/icon_choose_on_map" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:fontFamily="@font/open_sans_medium"
+                    android:text="Choose shop address on map"
+                    android:textColor="#2F80ED"
+                    android:textSize="@dimen/_12ssp"/>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAddService"
+                style="@style/ButtonStyle"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:backgroundTint="@color/color_primary"
+                android:text="Add Service"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnChooseLocationOnMap" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,12 +4,17 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import com.example.carbuddy.utils.DateTimeUtils
+import com.husnain.admincarbuddy.R
 
 fun View.visible() {
     visibility = View.VISIBLE
@@ -17,6 +22,26 @@ fun View.visible() {
 
 fun View.gone() {
     visibility = View.GONE
+}
+
+inline fun View.onClick(crossinline onClick: (View) -> Unit) {
+    setOnClickListener {
+        onClick(it)
+    }
+}
+
+fun Fragment.navigate(
+    @IdRes destinationId: Int,
+    args: Bundle? = null,
+) {
+    val navController = findNavController()
+    val options = NavOptions.Builder().apply {
+        setEnterAnim(R.anim.slide_in)
+        setExitAnim(R.anim.fade_out)
+        setPopEnterAnim(R.anim.fade_in)
+        setPopExitAnim(R.anim.slide_out)
+    }.build()
+    navController.navigate(destinationId, args, options)
 }
 
 fun View.invisible() {

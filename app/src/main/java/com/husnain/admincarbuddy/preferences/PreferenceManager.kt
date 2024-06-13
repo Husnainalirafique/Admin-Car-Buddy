@@ -33,7 +33,9 @@ class PreferenceManager @Inject constructor(@ApplicationContext private val cont
     }
 
     fun setIsIncomeVisible(visibility: Boolean) {
-        myPref.edit().putBoolean(KEY_INCOME_VISIBILITY, visibility).apply()
+        myPref.edit()
+            .putBoolean(KEY_INCOME_VISIBILITY, visibility)
+            .apply()
     }
 
     fun getIsIncomeVisible():Boolean{

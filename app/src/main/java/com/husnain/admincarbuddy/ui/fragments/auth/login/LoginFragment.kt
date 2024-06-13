@@ -2,10 +2,10 @@ package com.husnain.admincarbuddy.ui.fragments.auth.login
 
 import android.os.Bundle
 import android.util.Patterns
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -17,7 +17,6 @@ import com.husnain.admincarbuddy.utils.BackPressedExtensions.goBackPressed
 import com.husnain.admincarbuddy.utils.DataState
 import com.husnain.admincarbuddy.utils.ProgressDialogUtil.dismissProgressDialog
 import com.husnain.admincarbuddy.utils.ProgressDialogUtil.showProgressDialog
-import com.husnain.admincarbuddy.utils.getColorFromId
 import com.husnain.admincarbuddy.utils.setPasswordVisibilityToggle
 import com.husnain.admincarbuddy.utils.startActivity
 import com.husnain.admincarbuddy.utils.toast

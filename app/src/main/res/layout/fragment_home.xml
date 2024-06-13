@@ -56,14 +56,15 @@
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
         android:layout_width="0dp"
         android:layout_height="@dimen/_80sdp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="@dimen/_20sdp"
         app:cardBackgroundColor="@color/color_primary"
         app:cardCornerRadius="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvWishDayTimes">
 
@@ -89,7 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    app:srcCompat="@drawable/icon_pkr_hidden"/>
+                    app:srcCompat="@drawable/icon_pkr_hidden" />
 
             </androidx.cardview.widget.CardView>
 
@@ -97,11 +98,11 @@
                 android:id="@+id/tvIncomeInPkr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_18sdp"
                 android:fontFamily="@font/popins_bold"
                 android:text="10000.00"
-                android:textSize="@dimen/_13ssp"
-                android:layout_marginStart="@dimen/_18sdp"
                 android:textColor="@color/white"
+                android:textSize="@dimen/_13ssp"
                 app:layout_constraintStart_toEndOf="@+id/btnShowHideIncome"
                 app:layout_constraintTop_toTopOf="@+id/btnShowHideIncome" />
 
@@ -109,12 +110,12 @@
                 android:id="@+id/tvIncomeInPkrHidden"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_18sdp"
                 android:fontFamily="@font/popins_bold"
                 android:text="*****"
-                android:visibility="invisible"
-                android:textSize="@dimen/_20ssp"
-                android:layout_marginStart="@dimen/_18sdp"
                 android:textColor="@color/white"
+                android:textSize="@dimen/_20ssp"
+                android:visibility="invisible"
                 app:layout_constraintStart_toEndOf="@+id/btnShowHideIncome"
                 app:layout_constraintTop_toTopOf="@+id/btnShowHideIncome" />
 
@@ -122,9 +123,9 @@
                 android:id="@+id/tvPkr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
                 android:fontFamily="@font/popins_bold"
                 android:text="PKR"
-                android:layout_marginTop="2dp"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_13ssp"
                 app:layout_constraintBottom_toBottomOf="@+id/btnShowHideIncome"
@@ -135,12 +136,12 @@
                 android:id="@+id/tvPkrHidden"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
                 android:fontFamily="@font/popins_bold"
                 android:text="***"
-                android:visibility="invisible"
-                android:layout_marginTop="2dp"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_18ssp"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="@+id/btnShowHideIncome"
                 app:layout_constraintStart_toStartOf="@+id/tvIncomeInPkr"
                 app:layout_constraintTop_toBottomOf="@id/tvIncomeInPkr" />
@@ -148,4 +149,87 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnAddProfile"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_25sdp"
+        app:cardBackgroundColor="@color/color_primary"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgAddProfile"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/icon_add"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnAddMechanicProfile"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        app:cardBackgroundColor="@color/black"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddProfile"
+        app:layout_constraintEnd_toEndOf="@+id/btnAddProfile"
+        app:layout_constraintStart_toStartOf="@+id/btnAddProfile">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/icon_mechanic_home"
+            tools:layout_editor_absoluteX="330dp"
+            tools:layout_editor_absoluteY="725dp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAddMechanicProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:fontFamily="@font/open_sans_medium"
+        android:text="Mechanic Profile"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAddMechanicProfile"
+        app:layout_constraintEnd_toStartOf="@+id/btnAddMechanicProfile"
+        app:layout_constraintTop_toTopOf="@+id/btnAddMechanicProfile" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnAddServiceShopProfile"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        app:cardBackgroundColor="@color/black"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddMechanicProfile"
+        app:layout_constraintEnd_toEndOf="@+id/btnAddMechanicProfile"
+        app:layout_constraintStart_toStartOf="@+id/btnAddMechanicProfile">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/icon_service_shop_home"
+            tools:layout_editor_absoluteX="330dp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAddServiceShopProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:fontFamily="@font/open_sans_medium"
+        android:text="Service Shop"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAddServiceShopProfile"
+        app:layout_constraintEnd_toStartOf="@+id/btnAddServiceShopProfile"
+        app:layout_constraintTop_toTopOf="@+id/btnAddServiceShopProfile" />
 </androidx.constraintlayout.widget.ConstraintLayout>

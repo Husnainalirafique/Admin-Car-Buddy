@@ -59,7 +59,7 @@ class VmAuth @Inject constructor(
 
         val bitmap = ImageUtils.uriToBitmap(context, user.profileImageUri.toUri())
         val byteArrayOutputStream = ByteArrayOutputStream()
-        bitmap?.compress(Bitmap.CompressFormat.JPEG, 80, byteArrayOutputStream)
+        bitmap?.compress(Bitmap.CompressFormat.JPEG, 70, byteArrayOutputStream)
         val data = byteArrayOutputStream.toByteArray()
 
         ref.putBytes(data)

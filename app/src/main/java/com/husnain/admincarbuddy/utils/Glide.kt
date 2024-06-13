@@ -13,16 +13,4 @@ object Glide {
             .into(imageView)
     }
 
-    fun loadImageWithPlaceholder(
-        context: Context,
-        imageUrl: String,
-        imageView: ImageView,
-        placeholder: Int
-    ) {
-        Glide.with(context)
-            .load(imageUrl)
-            .placeholder(placeholder)
-            .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.ALL))
-            .into(imageView)
-    }
 }

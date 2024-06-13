@@ -5,6 +5,7 @@ plugins {
     id ("com.google.dagger.hilt.android")
     id ("com.google.gms.google-services")
     id("kotlin-parcelize")
+    alias(libs.plugins.googleAndroidLibrariesMapsplatformSecretsGradlePlugin)
 }
 
 android {
@@ -65,7 +66,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
     //lifeCycle
-    val lifecycleVersion = "2.7.0"
+    val lifecycleVersion = "2.8.1"
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
@@ -90,7 +91,7 @@ dependencies {
     implementation("com.webtoonscorp.android:readmore-view:1.3.2")
 
     //Firebase
-    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-storage")
@@ -104,6 +105,7 @@ dependencies {
     //Gson
     implementation ("com.google.code.gson:gson:2.10.1")
 
-    //Splash
-    implementation("androidx.core:core-splashscreen:1.0.1")
+    //maps
+    implementation(libs.play.services.maps)
+    implementation ("com.google.android.gms:play-services-location:21.3.0")
 }

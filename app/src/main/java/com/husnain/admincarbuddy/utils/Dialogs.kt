@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentManager
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import com.husnain.admincarbuddy.databinding.DialogCityPickerBinding
+import com.husnain.admincarbuddy.databinding.DialogConformOrderCancelationBinding
 import com.husnain.admincarbuddy.databinding.DialogLogoutBinding
 import com.husnain.admincarbuddy.ui.fragments.addProfile.CityAdapter
 import java.util.Calendar
@@ -43,6 +44,37 @@ object Dialogs {
             window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             binding.btnYes.setOnClickListener {
                 logout.invoke()
+                dismiss()
+            }
+            binding.btnNo.setOnClickListener {
+                dismiss()
+            }
+            show()
+        }
+    }
+
+    fun dialogOrderCancel(
+        context: Context,
+        inflater: LayoutInflater,
+        cancel: () -> Unit
+    ) {
+        val dialog = Dialog(context)
+        val binding = DialogConformOrderCancelationBinding.inflate(inflater, null, false)
+
+        val layoutParams = WindowManager.LayoutParams()
+        layoutParams.copyFrom(dialog.window?.attributes)
+        layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT
+        layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
+        layoutParams.gravity = Gravity.BOTTOM
+        layoutParams.verticalMargin = 0.018f //margin from bottom
+
+        dialog.window?.attributes = layoutParams
+        dialog.apply {
+            setContentView(binding.root)
+            setCancelable(true)
+            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            binding.btnYes.setOnClickListener {
+                cancel.invoke()
                 dismiss()
             }
             binding.btnNo.setOnClickListener {

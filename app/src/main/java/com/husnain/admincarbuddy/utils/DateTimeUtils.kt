@@ -11,6 +11,11 @@ object DateTimeUtils {
     fun formatHoursMinutes(timestamp: Long): String =
         SimpleDateFormat(Constants.TIME_FORMAT_H_MM_A, Locale.getDefault()).format(timestamp)
 
+    fun forBookingDateAndTime(timestamp: Long): String {
+        val dateFormat = SimpleDateFormat("MMM dd, yyyy | hh:mm a", Locale.getDefault())
+        return dateFormat.format(Date(timestamp))
+    }
+
     fun formatCompleteDateAndTime(): String {
         val calendar = Calendar.getInstance()
         val dateFormat = SimpleDateFormat(Constants.DATE_TIME_FORMAT_MM_DD_YYYY_HH_MM_SS, Locale.getDefault())

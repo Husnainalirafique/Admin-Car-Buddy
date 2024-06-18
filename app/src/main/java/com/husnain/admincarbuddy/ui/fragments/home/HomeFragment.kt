@@ -1,12 +1,14 @@
 package com.husnain.admincarbuddy.ui.fragments.home
 
 import android.Manifest
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.google.firebase.messaging.FirebaseMessaging
 import com.husnain.admincarbuddy.R
 import com.husnain.admincarbuddy.databinding.FragmentHomeBinding
 import com.husnain.admincarbuddy.preferences.PreferenceManager
@@ -25,10 +27,11 @@ import javax.inject.Inject
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    @Inject lateinit var prefs: PreferenceManager
+
+    @Inject
+    lateinit var prefs: PreferenceManager
     private val vmHome: VmHome by viewModels()
     private var isAllFabsVisible = false
-    private val permissions = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
     private val requestCode = 100
 
     override fun onCreateView(
@@ -45,12 +48,8 @@ class HomeFragment : Fragment() {
         setOnClickListener()
         setupIncomeVisibilityObserver()
         setUpFloatingButtonsVisibility()
-        requestPermission()
     }
 
-    private fun requestPermission() {
-        requireActivity().requestPermissions(permissions, requestCode)
-    }
     private fun setUpFloatingButtonsVisibility() {
         isAllFabsVisible = false
         binding.btnAddMechanicProfile.gone()
@@ -94,8 +93,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupIncomeVisibilityObserver() {
-        vmHome.incomeVisibility.observe(viewLifecycleOwner){ isVisible ->
-            if (isVisible){
+        vmHome.incomeVisibility.observe(viewLifecycleOwner) { isVisible ->
+            if (isVisible) {
                 binding.let {
                     it.imgShowHideIncome.setImageResource(R.drawable.icon_pkr_visible)
                     it.tvIncomeInPkr.invisible()
@@ -103,8 +102,7 @@ class HomeFragment : Fragment() {
                     it.tvPkr.invisible()
                     it.tvPkrHidden.visible()
                 }
-            }
-            else{
+            } else {
                 binding.let {
                     it.imgShowHideIncome.setImageResource(R.drawable.icon_pkr_hidden)
                     it.tvIncomeInPkrHidden.invisible()

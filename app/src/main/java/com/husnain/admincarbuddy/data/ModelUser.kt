@@ -8,7 +8,8 @@ data class ModelUser(
     val phoneNumber: String,
     val address: String,
     var profileImageUri: String,
+    var fcmToken: String,
     var docId: String = ""
 ) {
-    constructor() : this("", "", "", "", "", "", "")
+    constructor() : this("", "", "", "", "", "", "","")
 }

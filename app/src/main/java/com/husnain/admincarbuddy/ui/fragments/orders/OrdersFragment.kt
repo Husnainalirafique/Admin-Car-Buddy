@@ -1,11 +1,13 @@
 package com.husnain.admincarbuddy.ui.fragments.orders
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.google.android.material.tabs.TabLayoutMediator
 import com.husnain.admincarbuddy.databinding.FragmentOrdersBinding
+import com.husnain.admincarbuddy.ui.fragments.orders.viewpager.BookingsPagerAdapter
 
 class OrdersFragment : Fragment() {
     private var _binding: FragmentOrdersBinding? = null
@@ -18,12 +20,22 @@ class OrdersFragment : Fragment() {
     }
 
     private fun inIt() {
-        setOnClickListener()
+        setUpViewPager()
     }
 
-    private fun setOnClickListener() {
+    private fun setUpViewPager() {
+        val adapter = BookingsPagerAdapter(requireActivity())
+        binding.viewPager.adapter = adapter
 
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+            when (position) {
+                0 -> tab.text = "Pending"
+                1 -> tab.text = "Ongoing"
+                2 -> tab.text = "History"
+            }
+        }.attach()
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

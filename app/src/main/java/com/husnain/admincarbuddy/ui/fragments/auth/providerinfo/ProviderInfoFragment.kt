@@ -3,16 +3,18 @@ package com.husnain.admincarbuddy.ui.fragments.auth.providerinfo
 import android.app.Activity
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.carbuddy.utils.DateTimeUtils
 import com.github.dhaval2404.imagepicker.ImagePicker
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import com.husnain.admincarbuddy.data.ModelUser
 import com.husnain.admincarbuddy.databinding.FragmentProviderInfoBinding
 import com.husnain.admincarbuddy.ui.activities.HomeActivity
@@ -63,12 +65,23 @@ class ProviderInfoFragment : Fragment() {
         }
         binding.btnContinue.setOnClickListener {
             if (validateForm()) {
-                createAccount()
+                getFcmToken()
             }
         }
     }
 
-    private fun createAccount() {
+    private fun getFcmToken() {
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                toast(task.exception?.localizedMessage!!)
+                return@OnCompleteListener
+            }
+            val token = task.result
+            createAccount(token)
+        })
+    }
+
+    private fun createAccount(fcmToken: String) {
         val email = arguments?.getString(Constants.KEY_EMAIL)!!
         val password = arguments?.getString(Constants.KEY_PASSWORD)!!
         val fullName = binding.etFullName.text.toString()
@@ -83,7 +96,8 @@ class ProviderInfoFragment : Fragment() {
             dateOfBirth,
             phoneNumber,
             address,
-            profileImgUri.toString()
+            profileImgUri.toString(),
+            fcmToken
         )
 
         lifecycleScope.launch(Dispatchers.IO) {

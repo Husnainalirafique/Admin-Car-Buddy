@@ -15,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.husnain.admincarbuddy.data.ModelVendorProfile
 import com.husnain.admincarbuddy.databinding.FragmentAddProfileBinding
+import com.husnain.admincarbuddy.preferences.PreferenceManager
 import com.husnain.admincarbuddy.ui.activities.MapActivity
 import com.husnain.admincarbuddy.utils.DataState
 import com.husnain.admincarbuddy.utils.Dialogs
@@ -37,6 +38,7 @@ class AddProfileFragment : Fragment() {
     private lateinit var profileImgUri: Uri
     @Inject
     lateinit var auth: FirebaseAuth
+    @Inject lateinit var prefs: PreferenceManager
     private var profileLocationLatLng: String? = null
     private val vm: VmAddVendorProfile by viewModels()
 
@@ -88,26 +90,31 @@ class AddProfileFragment : Fragment() {
         val experience = "${binding.etYearsOfExperience.text.toString()} years"
         val city = binding.etSelectCity.text.toString()
         val shopName = binding.etShopName.text.toString()
-        val availability = "${binding.etStartTime.text.toString()} - ${binding.etEndTime.text.toString()}"
+        val availability =
+            "${binding.etStartTime.text.toString()} - ${binding.etEndTime.text.toString()}"
         val cityLocation = binding.etCityLocation.text.toString()
         val shopMapLocation = profileLocationLatLng
 
-        val vendorProfile = ModelVendorProfile(
-            vendorImage = profileImgUri.toString(),
-            fullName = fullName,
-            contactNumber = contactNumber,
-            whatsappNumber = whatsappNumber,
-            speciality = speciality,
-            yearsOfExperience = experience,
-            city = city,
-            shopName = shopName,
-            availability = availability,
-            locationNameInCity = cityLocation,
-            addressFromMap = shopMapLocation!!,
-            vendorUid = auth.uid!!
-        )
-        lifecycleScope.launch {
-            vm.addVendor(vendorProfile)
+        val fcmToken = prefs.getUserData()
+        fcmToken?.let {
+            val vendorProfile = ModelVendorProfile(
+                vendorImage = profileImgUri.toString(),
+                fullName = fullName,
+                contactNumber = contactNumber,
+                whatsappNumber = whatsappNumber,
+                speciality = speciality,
+                yearsOfExperience = experience,
+                city = city,
+                shopName = shopName,
+                availability = availability,
+                locationNameInCity = cityLocation,
+                addressFromMap = shopMapLocation!!,
+                vendorUid = auth.uid!!,
+                fcmToken = it.fcmToken
+            )
+            lifecycleScope.launch {
+                vm.addVendor(vendorProfile)
+            }
         }
     }
 

@@ -5,42 +5,52 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="@dimen/_32sdp"
     tools:context=".ui.activities.MapActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_30sdp"
-        map:cardCornerRadius="20dp"
-        map:cardElevation="5dp"
-        map:layout_constraintBottom_toTopOf="@+id/btnAddLocation"
+        map:layout_constraintBottom_toBottomOf="parent"
         map:layout_constraintEnd_toEndOf="parent"
         map:layout_constraintStart_toStartOf="parent"
         map:layout_constraintTop_toTopOf="parent">
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/map"
-            class ="com.google.android.gms.maps.SupportMapFragment"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            map:layout_constraintBottom_toBottomOf="parent"
-            map:layout_constraintEnd_toEndOf="parent"
-            map:layout_constraintStart_toStartOf="parent"
-            map:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/map"
+                class="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                map:layout_constraintBottom_toBottomOf="parent"
+                map:layout_constraintEnd_toEndOf="parent"
+                map:layout_constraintStart_toStartOf="parent"
+                map:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAddLocation"
+                style="@style/ButtonStyle"
+                android:layout_marginHorizontal="22dp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:backgroundTint="@color/black"
+                android:text="Done"
+                android:textAllCaps="true"
+                map:layout_constraintBottom_toBottomOf="@+id/map"
+                map:layout_constraintEnd_toEndOf="parent"
+                map:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnTakeToCurrentLocation"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_25sdp"
+                map:layout_constraintBottom_toTopOf="@+id/btnAddLocation"
+                map:layout_constraintEnd_toEndOf="@+id/btnAddLocation"
+                map:srcCompat="@drawable/icon_current_location" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnAddLocation"
-        style="@style/ButtonStyle"
-        android:layout_marginHorizontal="22dp"
-        android:layout_marginBottom="@dimen/_25sdp"
-        android:backgroundTint="@color/color_primary"
-        android:text="Add Location"
-        map:layout_constraintBottom_toBottomOf="parent"
-        map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
